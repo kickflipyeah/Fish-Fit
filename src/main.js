@@ -13,10 +13,17 @@ let config = {
     height: 480,
     scene: [ Load, Menu, Play ] //puts the diff scenes we have in the scene array
   }
-//reservekeyboard vars (no longer needed)
-let keyF, keyR, keyUP, keyRIGHT;
+
+let keyUP, keyENTER;
 let game = new Phaser.Game(config);
 
 // set UI sizes
 let borderUISize = game.config.height / 15;
 let borderPadding = borderUISize / 3;
+let centerX = game.config.width/2;
+let centerY = game.config.height/2;
+let w = game.config.width;
+let h = game.config.height;
+
+
+

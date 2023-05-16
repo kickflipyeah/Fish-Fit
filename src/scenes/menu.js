@@ -4,6 +4,14 @@ class Menu extends Phaser.Scene {
     }
 
     create() {
-        this.add.text(20, 20, "Fish Fit Menu");
+        this.add.image(0, 0, 'fish-fit-title').setOrigin(0, 0,);
+        keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+        keyENTER = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
       }
+
+    update() {
+        if (Phaser.Input.Keyboard.JustDown(keyENTER)) {
+            this.scene.start('playScene');
+          }
+    }
 }
