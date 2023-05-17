@@ -16,6 +16,8 @@ class Load extends Phaser.Scene {
         });
         
         this.load.path = './assets/';
+        //load audio
+        this.load.audio('slower-ver', 'audio/slower-ver.mp3');
         //load img
         this.load.image('rock-fish', 'img/rock-fish.png');
         this.load.image('fish-fit-title', 'img/fish-fit-title.png');
@@ -24,6 +26,7 @@ class Load extends Phaser.Scene {
         this.load.image('clouds-top', 'img/clouds-top.png');
         this.load.image('sky', 'img/sky.png');
         this.load.image('skull', 'img/skull.png');
+        this.load.spritesheet('fish-sheet', 'img/fish-sheet.png', {frameWidth: 54, frameHeight: 40, startFrame: 0, endFrame: 2});
     }
 
 

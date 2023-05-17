@@ -5,7 +5,6 @@ class Menu extends Phaser.Scene {
 
     create() {
         this.add.image(0, 0, 'fish-fit-title').setOrigin(0, 0,);
-        keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         keyENTER = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
       }
 
