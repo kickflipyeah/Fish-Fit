@@ -2,9 +2,10 @@ class Fish extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, texture, frame) {
         super(scene, x, y, texture, frame);
         
-    //add fish to scene w/ physics and gravity
+    //add fish to scene w/ physics and gravity  
     scene.add.existing(this);
     scene.physics.add.existing(this);
+    this.body.setSize(25, 20, true);
     this.body.gravity.y = 450;
     this.body.maxVelocity.x = 450;
     //fish animation for walking (flopping) and jumping
@@ -28,6 +29,7 @@ class Fish extends Phaser.GameObjects.Sprite {
                 this.body.setVelocityY(-400);
                 this.anims.play('jump', true);
                 console.log('key was pressed');
+                this.scene.sound.play('jump');
                 isJumping = true;
             }
             else {

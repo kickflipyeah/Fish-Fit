@@ -10,6 +10,7 @@ class Menu extends Phaser.Scene {
 
     update() {
         if (Phaser.Input.Keyboard.JustDown(keyENTER)) {
+            this.sound.play('blipSelect');
             this.scene.start('playScene');
           }
     }
