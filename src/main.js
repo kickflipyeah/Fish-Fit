@@ -10,7 +10,7 @@ let config = {
     type: Phaser.AUTO,
     width: 640,
     height: 480,
-    scene: [ Load, Menu, Play ], 
+    scene: [ Menu, Load, Play ], 
     physics: {
       default: 'arcade',
       arcade: {
