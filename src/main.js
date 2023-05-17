@@ -9,7 +9,8 @@
 let config = {
     type: Phaser.AUTO,
     width: 640,
-    height: 480,    
+    height: 480,
+    scene: [ Menu, Load, Play ], 
     physics: {
       default: 'arcade',
       arcade: {
@@ -18,8 +19,7 @@ let config = {
               x: 0,
               y: 100
           }
-      },
-      scene: [ Load, Menu, Play ] 
+      }
   },//puts the diff scenes we have in the scene array
   }
 
