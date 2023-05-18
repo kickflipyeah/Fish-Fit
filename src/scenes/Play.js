@@ -46,25 +46,32 @@ class Play extends Phaser.Scene {
             isJumping = false;
         });
         keyENTER = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
+        //skull group
         this.skullSpeed = -150;
         this.skullGroup = this.add.group({
-            runChildUpdate: true    // make sure update runs on group children
+            runChildUpdate: true   
         });
+        //bubble group
+        this.bubbleSpeed = -170;
+        this.bubbleGroup = this.add.group({
+            runChildUpdate: true
+        });    
         //timer for score
         this.scoreTimer = this.time.addEvent({
             delay: 1000,
             callback: () => {
                 if (!this.gameOver){
                     this.score += 1;
-                    this.skullSpeed *= 1.03;
+                    this.skullSpeed *= 1.02;
+                    this.bubbleSpeed *= 1.01;
                     this.scoreText.text = 'SCORE: ' + this.score; //.text fills in words
                 }
             },
             loop: true
         });
+        //add bubble powerup
 
-        //add skull enemy
-        //this.skull = new Skull(this, game.config.width, game.config.height - 160, 'skull').setOrigin(0.5, 0);
+        
         //make skull enemy w timer
         this.skullTime = this.time.addEvent({
             delay: 2000,
@@ -75,6 +82,17 @@ class Play extends Phaser.Scene {
             },
             loop: true
         });
+        //make bubble powerup w timer
+        this.bubbleTime = this.time.addEvent({
+            delay: 4000,
+            callback: () => {
+                if (!this.gameOver){
+                    this.addBubble();
+                }
+            },
+            loop: true
+        });
+
         let scoreConfig = {
             fontFamily: 'Helvetica',
             fontSize: '24px',
@@ -86,7 +104,9 @@ class Play extends Phaser.Scene {
             },
             align: 'center'
         };
+        
         this.gameOver = false;
+        
         //collision with fish
         this.physics.add.collider(this.skullGroup, this.p1Fish, () => {
             this.physics.pause();
@@ -97,14 +117,32 @@ class Play extends Phaser.Scene {
             this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press (ENTER) to Restart', scoreConfig).setOrigin(0.5);            
             this.gameOver = true;
         });
+        
+        //trying to pop the bubble
+        //collision with fish and bubble
+        this.physics.add.overlap(this.bubbleGroup, this.p1Fish, () => {
+            //this.sound.play('pop'); find popping sound
+            this.bubbleGroup.clear(true, true); 
+            //this.bubble.disableBody(true, true);
+            this.score += 20;
+            //bubbleCollider = true;
+        });
+
       }
-    
+
+      addBubble() {
+        let bubbleHeight =  Phaser.Math.Between(190, 340);
+        let bubble = new Bubble(this, game.config.width, bubbleHeight, 'bubble'); //190 - 340
+        bubble.setScale(0.8);
+        this.bubbleGroup.add(bubble);
+        }
+
       addSkull() {
         let skullHeight =  Phaser.Math.Between(190, 340);
         let skull = new Skull(this, game.config.width, skullHeight, 'skull'); //190 - 340
         skull.setScale(0.5);
         this.skullGroup.add(skull);
-    }
+        }
     update() {
         //this.skull.update();
         this.p1Fish.update();
@@ -116,11 +154,9 @@ class Play extends Phaser.Scene {
             this.sound.play('blipSelect');
             this.scene.restart();
         }
-       
     }
 }
 
-//i love
 
 
 

@@ -31,7 +31,18 @@ class Fish extends Phaser.GameObjects.Sprite {
                 console.log('key was pressed');
                 this.scene.sound.play('jump');
                 isJumping = true;
+                // if (bubbleCollider == true) {
+                //     this.body.setVelocityX(0);
+                //     console.log('bubble collider = false');
+                //     bubbleCollider = false;
+                // }
             }
+            // if (bubbleCollider == true) {
+
+            //     this.body.setVelocityX(0);
+            //     console.log('bubble collider = false');
+            //     bubbleCollider = false;
+            // }
             else {
                 this.anims.play('walk', true);
             }
@@ -39,23 +50,4 @@ class Fish extends Phaser.GameObjects.Sprite {
         }
 
     }
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

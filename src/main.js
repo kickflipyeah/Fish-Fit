@@ -2,8 +2,7 @@
  *  Jessica Zogaric
  *  Fish Fit
  *  Approximate time to complete: -30 hours
- *  Although I wasn't able to finish my game, I spent majority of the time working on creative assets. My game has a significantly thought out
- *  visual style and I am proud of assets I created.
+ *  
  */
 
 //configured the screen so its 640 x 480 and pass the config thru the let game
