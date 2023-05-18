@@ -21,6 +21,7 @@ class Load extends Phaser.Scene {
         this.load.audio('blipSelect', 'audio/blipSelect.wav');
         this.load.audio('jump', 'audio/jump.wav');
         this.load.audio('hitHurt', 'audio/hitHurt.wav');
+        this.load.audio('pop', 'audio/pop.wav');
         //load img
         this.load.image('rock-fish', 'img/rock-fish.png');
         this.load.image('fish-fit-title', 'img/fish-fit-title.png');

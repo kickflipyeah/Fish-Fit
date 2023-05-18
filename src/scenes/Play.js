@@ -121,7 +121,7 @@ class Play extends Phaser.Scene {
         //trying to pop the bubble
         //collision with fish and bubble
         this.physics.add.overlap(this.bubbleGroup, this.p1Fish, () => {
-            //this.sound.play('pop'); find popping sound
+            this.sound.play('pop');
             this.bubbleGroup.clear(true, true); 
             //this.bubble.disableBody(true, true);
             this.score += 20;
